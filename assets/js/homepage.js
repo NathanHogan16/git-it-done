@@ -1,6 +1,11 @@
-let getUserRepos = ()=> {
-    let response = fetch("https://api.github.com/users/octocat/repos");
-    console.log(response);
+let getUserRepos = (user)=> {
+    let apiUrl = "https://api.github.com/users/" + user + "/repos";
+
+    fetch(apiUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        });
+    });
 };
 
-getUserRepos();
+getUserRepos("NathanHogan16");
